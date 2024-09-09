@@ -70,7 +70,7 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2  # Updated version to v2
         with:
-          args: -Dsonar.projectKey=your_project_key -Dsonar.organization=your_organization_key
+          args: -Dsonar.projectKey=nafija-pinky -Dsonar.organization=nafija-pinky
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
