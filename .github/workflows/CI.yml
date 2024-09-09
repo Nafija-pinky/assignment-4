@@ -18,7 +18,7 @@ jobs:
       - name: Install Docker Compose
         run: |
           sudo apt-get update
-          sudo apt-get install -y docker-compose  # Added -y to confirm installation
+          sudo apt-get install -y docker-compose
 
       - name: Generate required .env file
         run: |
@@ -44,7 +44,7 @@ jobs:
       - name: Install Docker Compose
         run: |
           sudo apt-get update
-          sudo apt-get install -y docker-compose  # Added -y to confirm installation
+          sudo apt-get install -y docker-compose
 
       - name: Generate required .env file
         run: |
@@ -65,12 +65,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Shallow clones should be disabled for better relevancy of analysis
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2  # Updated version to v2
+        uses: SonarSource/sonarcloud-github-action@v2
         with:
-          args: -Dsonar.projectKey=nafija-pinky -Dsonar.organization=nafija-pinky
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=nafija-pinky
+            -Dsonar.organization=nafija-pinky
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -88,4 +91,5 @@ jobs:
       - name: Set up Git config
         run: |
           git config user.name "github-actions"
-         
+          git config user.email "github-actions@github.com"
+          # Add more Git configuration if needed for merging
