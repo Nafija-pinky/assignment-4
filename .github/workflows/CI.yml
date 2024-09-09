@@ -72,7 +72,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.projectKey=nafija-pinky
+            -Dsonar.projectKey=Nafija-pinky_assignment-4
             -Dsonar.organization=nafija-pinky
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
